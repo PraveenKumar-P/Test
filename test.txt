@@ -1,0 +1,50 @@
+product table
+Id  UserId  ProductName ProductModel
+1	1		Bus			Volvo
+2	1		Truck		Man
+3	2		Car			BMW
+4	1		Bike		Yamaha
+
+User table
+Id  UserName	Email
+1	Ram			Ram@gmail.com
+2	Ganesh		Ganesh@gmail.com
+3	Alex		Alex@gmail.com
+
+Query
+select Product.UserId, User.UserName, Product.ProductName, Product.ProductModel
+from Product join User on Product.UserId = User.Id order by User.UserName ASC;
+
+Output
+UserId	UserName	ProductName		ProductModel
+2		Ganesh		Car				BMW
+1		Ram			Bus				Volvo
+1		Ram			Truck			Man
+1		Ram			Bike			Yamaha
+
+project table
+Id	CategoryId	ProjectTitle
+1	1			Jira
+2	2			SourceTree
+3	2			Insomia
+4	4			vsCode
+
+Category table
+Id	CategoryName
+1	Web
+2	Desktop
+3	Network
+
+Query
+select project.CategoryId, project.ProjectTitle, category.CatagoryName
+from project left join category on project.CategoryId = category.Id order by project.ProjectTitle ASC;
+
+Output
+CategoryId	ProjectTitle	CatagoryName
+2			Insomia			Desktop
+1			Jira			Web
+2			SourceTree		Desktop
+4			vsCode			Null
+	
+		
+		
